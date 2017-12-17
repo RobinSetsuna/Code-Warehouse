@@ -7,7 +7,7 @@ Programming Language: Python 3.5<br/>
 DBMS: MySQL 5.6 or above<br/>
 
 ##### 要求
-开发完整的数据库应用系统
+开发完整的数据库应用系统。<br/>
 数据管理子系统为B/S结构。
 
 # Warehousing-Management-System
@@ -19,7 +19,7 @@ Programming Language: Python<br/>
 DBMS: MySQL<br/>
 
 ##### Requirements
-Develop a fully functional database application system.
+Develop a fully functional database application system.<br/>
 The data management sub-system is B/S structure.
 
 ##### Note
