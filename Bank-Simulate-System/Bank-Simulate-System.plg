@@ -1,0 +1,57 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: 银行营业厅模拟系统动画版 - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\Users\YorRHa.2B\AppData\Local\Temp\RSPE2B3.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/S.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Users\YorRHa.2B\Desktop\Bank Simulate  System\about_vip.cpp"
+"C:\Users\YorRHa.2B\Desktop\Bank Simulate  System\control.cpp"
+"C:\Users\YorRHa.2B\Desktop\Bank Simulate  System\draw.cpp"
+"C:\Users\YorRHa.2B\Desktop\Bank Simulate  System\input.cpp"
+"C:\Users\YorRHa.2B\Desktop\Bank Simulate  System\main.cpp"
+"C:\Users\YorRHa.2B\Desktop\Bank Simulate  System\model.cpp"
+"C:\Users\YorRHa.2B\Desktop\Bank Simulate  System\output.cpp"
+]
+Creating command line "cl.exe @C:\Users\YorRHa.2B\AppData\Local\Temp\RSPE2B3.tmp" 
+Creating temporary file "C:\Users\YorRHa.2B\AppData\Local\Temp\RSPE2B4.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib graphics.lib graphicsu.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/S.pdb" /debug /machine:I386 /out:"Debug/S.exe" /pdbtype:sept 
+".\Debug\about_vip.obj"
+".\Debug\control.obj"
+".\Debug\draw.obj"
+".\Debug\input.obj"
+".\Debug\main.obj"
+".\Debug\model.obj"
+".\Debug\output.obj"
+]
+Creating command line "link.exe @C:\Users\YorRHa.2B\AppData\Local\Temp\RSPE2B4.tmp"
+<h3>Output Window</h3>
+Compiling...
+about_vip.cpp
+c:\users\yorrha.2b\desktop\bank simulate  system\about_vip.cpp(6) : fatal error C1083: Cannot open include file: 'graphics.h': No such file or directory
+control.cpp
+c:\users\yorrha.2b\desktop\bank simulate  system\control.cpp(6) : fatal error C1083: Cannot open include file: 'graphics.h': No such file or directory
+draw.cpp
+c:\users\yorrha.2b\desktop\bank simulate  system\draw.cpp(6) : fatal error C1083: Cannot open include file: 'graphics.h': No such file or directory
+input.cpp
+c:\users\yorrha.2b\desktop\bank simulate  system\input.cpp(6) : fatal error C1083: Cannot open include file: 'graphics.h': No such file or directory
+main.cpp
+c:\users\yorrha.2b\desktop\bank simulate  system\main.cpp(6) : fatal error C1083: Cannot open include file: 'graphics.h': No such file or directory
+model.cpp
+c:\users\yorrha.2b\desktop\bank simulate  system\model.cpp(6) : fatal error C1083: Cannot open include file: 'graphics.h': No such file or directory
+output.cpp
+c:\users\yorrha.2b\desktop\bank simulate  system\output.cpp(6) : fatal error C1083: Cannot open include file: 'graphics.h': No such file or directory
+Error executing cl.exe.
+
+
+
+<h3>Results</h3>
+S.exe - 7 error(s), 0 warning(s)
+</pre>
+</body>
+</html>
