@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>vehicle.txt</file>
+        <file>log.txt</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>image/bg.jpg</file>
+        <file>image/exit.jpg</file>
+        <file>image/map.jpg</file>
+        <file>image/start.jpg</file>
+        <file>image/table.jpg</file>
+        <file>image/change.jpg</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/new/prefix2">
+        <file>C:/Users/dengh/Desktop/黄图/表格框.jpg</file>
+        <file>C:/Users/dengh/Desktop/黄图/地图和地点的小透明.jpg</file>
+        <file>C:/Users/dengh/Desktop/黄图/加字背景.jpg</file>
+        <file>C:/Users/dengh/Desktop/黄图/开始模拟框.jpg</file>
+        <file>C:/Users/dengh/Desktop/黄图/退出模拟框.jpg</file>
+    </qresource>
+</RCC>

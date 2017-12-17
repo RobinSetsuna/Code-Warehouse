@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Widget</class>
+ <widget class="QWidget" name="Widget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1024</width>
+    <height>644</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Widget</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QLineEdit" name="lineEdit_limitTime">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>239</y>
+     <width>126</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 11pt &quot;Agency FB&quot;;</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_cityStart">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>136</y>
+     <width>126</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 11pt &quot;Agency FB&quot;;</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_cityEnd">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>173</y>
+     <width>126</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 11pt &quot;Agency FB&quot;;</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox_startegy">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>207</y>
+     <width>126</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 11pt &quot;Agency FB&quot;;</string>
+   </property>
+   <item>
+    <property name="text">
+     <string>最少费用</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>最少时间</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>限时最少费用</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_passCity">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>300</y>
+     <width>291</width>
+     <height>121</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:0px solid;</string>
+   </property>
+   <property name="title">
+    <string/>
+   </property>
+   <widget class="QCheckBox" name="checkBox_beijing">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>10</y>
+      <width>71</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>北京</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_changsha">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>10</y>
+      <width>71</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>长沙</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_haikou">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>40</y>
+      <width>71</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>海口</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_haerbin">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>100</y>
+      <width>71</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>哈尔滨</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_wlmqi">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>70</y>
+      <width>81</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>乌鲁木齐</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_henshui">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>40</y>
+      <width>71</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>衡水</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_tianjin">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>40</y>
+      <width>71</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>天津</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_zhanjiang">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>10</y>
+      <width>71</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>湛江</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_chendu">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>100</y>
+      <width>71</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>成都</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_shanghai">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>70</y>
+      <width>71</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>上海</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_heifei">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>70</y>
+      <width>71</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>合肥</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_kunming">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>100</y>
+      <width>71</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>昆明</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QPushButton" name="pushButton_check">
+   <property name="geometry">
+    <rect>
+     <x>410</x>
+     <y>440</y>
+     <width>101</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 11pt &quot;Agency FB&quot;;
+background-image: url(:/image/start.jpg);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_exit">
+   <property name="geometry">
+    <rect>
+     <x>410</x>
+     <y>480</y>
+     <width>101</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 11pt &quot;Agency FB&quot;;
+background-image: url(:/image/exit.jpg);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_change">
+   <property name="geometry">
+    <rect>
+     <x>580</x>
+     <y>500</y>
+     <width>101</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 11pt &quot;Agency FB&quot;;
+background-image: url(:/image/change.jpg);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labeltime">
+   <property name="geometry">
+    <rect>
+     <x>650</x>
+     <y>421</y>
+     <width>111</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 11pt &quot;Agency FB&quot;;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelstatus">
+   <property name="geometry">
+    <rect>
+     <x>650</x>
+     <y>460</y>
+     <width>321</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 11pt &quot;Agency FB&quot;;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>
