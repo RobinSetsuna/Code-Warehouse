@@ -3,6 +3,7 @@
 
 ##### 实验环境与工具<br/>
 OS：Microsoft Windows <br/>
+Programming Language: Python<br/>
 DBMS: MySQL<br/>
 
 ##### 要求
@@ -14,8 +15,12 @@ I finished the project with my classmates in my junior year. It is developed by 
 
 ##### Environment and Tools
 OS：Microsoft Windows <br/>
+Programming Language: Python<br/>
 DBMS: MySQL<br/>
 
 ##### Requirements
 Develop a fully functional database application system.
 The data management sub-system is B/S structure.
+
+##### Note
+Click 'runserver'to run the Django server, but be sure that MySql has been installed on your computer.
