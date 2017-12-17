@@ -15,7 +15,7 @@ VIP窗口在VIP客户出现后要尽快结束普通业务的处理，为VIP客�
 
 #### 注意
 "vip.dat"文件为VIP用户的记录信息，使用"输入VIP客户资料"进行VIP客户信息的录入，使用"读取VIP客户资料"进行VIP客户信息的读取<br/>
-Debug文件夹里是演示用的Debug程序，直接打开"银行营业厅模拟系统动画版"即可运行,其中的"output"为日志文件。<br/>
+Debug文件夹里是演示用的Debug程序，直接打开"demo.exe"即可运行,其中的"output"为日志文件。<br/>
 若使用VC6打开该工程需要在VC的../include路径中添加EasyX库的头文件"graphics.h"<br/>
 
 # Bank-Simulate-System 
@@ -35,5 +35,5 @@ When serving common client, if VIP arrives, VIP window must finished the task as
 
 #### Note
 "vip.dat" is the file for storing VIP info. Please use "输入VIP客户资料" to input extra client info, and "读取VIP客户资料" to display exsiting client info.<br/>
-The demo program is in Debug folder. Please click "银行营业厅模拟系统动画版" to see the demo. "Output" is the log file.<br/>
+The demo program is in Debug folder. Please click "demo.exe" to see the demo. "Output" is the log file.<br/>
 If you want to open the project in VC6, you need to install the EasyX library first.
