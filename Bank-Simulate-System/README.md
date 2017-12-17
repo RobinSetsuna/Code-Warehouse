@@ -20,13 +20,13 @@ Debug文件夹里是演示用的Debug程序，直接打开"demo.exe"即可运行
 
 # Bank-Simulate-System 
 ##### Another classmate and I together accomplished this system when I was studying programming as an amateur. It is a course-project for Introduction to Computing and How to Program. The project was written by programming language C and used EasyX graphic library to realize graphic display. The project is intended for practicing strategic algorithm and process simulation. The following functions are accomplished.
-1)Queueing strategies,bank service simulation<br/>
+1)Queueing strategies, bank service simulation<br/>
 2)Number-generating machine and VIP identity certification<br/>
 3)If the bank is not on duty, number-generating must be stopped and all the existing clients must be served before shut down.<br/>
 4)Recording log file<br/>
 
 #### Queueing strategies are as follows:
-The foundamental strategy is FIFO, the first arrived must be served first.
+The fundamental strategy is FIFO, the first arrived must be served first.
 ###### Strategy1: VIP-Only strategy
 VIP window only serve the VIP client.
 ###### Strategy2: Non-VIP-Only strategy
@@ -34,6 +34,6 @@ When VIP client queue is empty, VIP window turn out as common window to serve co
 When serving common client, if VIP arrives, VIP window must finished the task as soon as possible so as to serve the VIP client.<br/>
 
 #### Note
-"vip.dat" is the file for storing VIP info. Please use "输入VIP客户资料" to input extra client info, and "读取VIP客户资料" to display exsiting client info.<br/>
+"vip.dat" is the file for storing VIP info. Please use "输入VIP客户资料" to input extra client info, and "读取VIP客户资料" to display existing client info.<br/>
 The demo program is in Debug folder. Please click "demo.exe" to see the demo. "Output" is the log file.<br/>
 If you want to open the project in VC6, you need to install the EasyX library first.
