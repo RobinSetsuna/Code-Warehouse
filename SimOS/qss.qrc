@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>timg.jpg</file>
+        <file>process.png</file>
+        <file>ram2.jpg</file>
+        <file>folder.jpg</file>
+        <file>printer.jpg</file>
+    </qresource>
+</RCC>
