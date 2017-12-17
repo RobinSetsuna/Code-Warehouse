@@ -1,6 +1,4 @@
 # Portfolio Description
-My Portfolio for graduate admission.
-
 In the repository, it contains the following code projects.
 1.	Bank-Simulate-System
 2.	Football-Club
