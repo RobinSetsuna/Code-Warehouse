@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Director | Dashboard</title>
+        <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+        <meta name="description" content="Developed By M Abdur Rokib Promy">
+        <meta name="keywords" content="Admin, Bootstrap 3, Template, Theme, Responsive">
+        <!-- bootstrap 3.0.2 -->
+        {% load staticfiles %}
+        <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet" type="text/css" />
+        <!-- font Awesome -->
+        <link href="{% static "css/font-awesome.min.css" %}" type="text/css" />
+        <!-- Ionicons -->
+        <link href="{% static "css/ionicons.min.css" %}" rel="stylesheet" type="text/css" />
+
+        <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+        <!-- Theme style -->
+        <link href="{% static "css/style.css" %}" rel="stylesheet" type="text/css" />
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        <!-- jQuery 2.0.2 -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+        <script src="{% static "js/jquery.min.js" %}" type="text/javascript"></script>
+
+        <script>
+            $(document).ready(function () {
+                $('#commodityQueryBtn, #tagCommodityInfo').click(function () {
+                    $.ajax({
+                        type: "POST",
+                        url: "/manager/query_commodity/",
+                        data: {"commodityId": $('#commodityId').val(), "commodityName": $('#commodityName').val(), "commodityPrice": $('#commodityPrice').val()},
+                        dataType: "json",
+                        success: function (data) {
+
+                            $('#commodityTable').empty();
+                            var html = "";
+                            for (var j = 0; j < data.commodityList.length; ++j) {
+                                var obj = data.commodityList[j];
+                                html += '<tr>';
+                                html += '<td>' + obj.C_ID + '</td>';
+                                html += '<td>' + obj.C_Name + '</td>';
+                                html += '<td>' + obj.C_Price + '</td>';
+                                html += '<td>' + obj.C_Cost + '</td>';
+                                html += '<td>' + obj.C_Weight + '</td>';
+                                html += '<td>' + obj.C_Category + '</td>';
+                                html += '<td>' + obj.C_Packaging + '</td>';
+                                html += '<td>' + obj.C_Capacity + '</td>';
+{#                                html += '<td>' + obj.totalQuantity + '</td>';#}
+                                html += '<td>'+'<button class="delete" id ="' + obj.C_ID +
+                                    'DeleBtn">删除</button><button class="edify" id="'+ obj.C_ID +
+                                    'EdifyBtn">修改</button>'+'</td>';
+                                html += '</tr>'
+                            }
+                            $('#commodityTable').append(html);
+                        },
+                        error:function () {
+                            alert("Error");
+                        }
+                    })
+                }),
+                $('#monitorQueryBtn, #tagMonitorInfo').click(function () {
+                    $.ajax({
+                        type: "POST",
+                        url: "/manager/query_monitor/",
+                        data: {"monitorId": $('#monitorId').val(), "monitorName": $('#monitorName').val(), "monitorAge": $('#monitorAge').val()},
+                        dataType: "json",
+                        success: function (data) {
+                            $('#monitorTable').empty();
+                            var html = "";
+                            for (var j = 0; j < data.monitorList.length; ++j) {
+                                var obj = data.monitorList[j];
+                                html += '<tr>';
+                                html += '<td>' + obj.M_ID + '</td>';
+                                html += '<td>' + obj.M_Name + '</td>';
+                                html += '<td>' + obj.M_Phone + '</td>';
+                                html += '<td>' + obj.M_Address + '</td>';
+                                html += '<td>' + obj.M_Age + '</td>';
+                                html += '<td>'+'<button class="delete" id="' +
+                                    obj.M_Id + 'DeleBtn">删除</button><button class="edify" id="' +
+                                    obj.M_Id + 'EdifyBtn">修改</button>'+'</td>';
+                                html += '</tr>'
+                            }
+                            $('#monitorTable').append(html);
+                        },
+                        error:function () {
+                            alert("Error");
+                        }
+                    })
+                }),
+                $('#warehouseQueryBtn, #tagWarehouseInfo').click(function () {
+                    $.ajax({
+                        type: "POST",
+                        url: "/manager/query_warehouse/",
+                        data: {"warehouseId": $('#warehouseId').val(), "warehouseName": $('#warehouseName').val()},
+                        dataType: "json",
+                        success: function (data) {
+                            $('#warehouseTable').empty();
+                            var html = "";
+                            for (var j = 0; j < data.warehouseList.length; ++j) {
+                                var obj = data.warehouseList[j];
+                                html += '<tr>';
+                                html += '<td>' + obj.W_ID + '</td>';
+                                html += '<td>' + obj.W_Name + '</td>';
+                                html += '<td>' + obj.W_Address + '</td>';
+                                html += '<td>' + obj.W_Capacity + '</td>';
+                                html += '<td>' + obj.W_Monitor + '</td>';
+                                html += '<td>'+'<button class="delete" id="' +
+                                    obj.W_ID + 'DeleBtn">删除</button><button class="edify" id="' +
+                                    obj.W_ID + 'EdifyBtn">修改</button>'+'</td>';
+                                html += '</tr>'
+                            }
+                            $('#warehouseTable').append(html);
+                        },
+                        error:function () {
+                            alert("Error");
+                        }
+                    })
+                }),
+                $('#putLogQueryBtn, #tagPutLogInfo').click(function () {
+                    $.ajax({
+                        type: "POST",
+                        url: "/manager/query_putlog/",
+                        data: {"putLogMonth": $('#putLogMonth').val()},
+                        dataType: "json",
+                        success: function (data) {
+                            $('#putLogTable').empty();
+                            var html = "";
+                            for (var j = 0; j < data.putLogList.length; ++j) {
+                                var obj = data.putLogList[j];
+                                html += '<tr>';
+                                html += '<td>' + obj.Put_ID + '</td>';
+                                html += '<td>' + obj.PA_ID + '</td>';
+                                html += '<td>' + obj.P_ID + '</td>';
+                                html += '<td>' + obj.C_ID + '</td>';
+                                html += '<td>' + obj.PutDate + '</td>';
+                                html += '<td>' + obj.Quantity + '</td>';
+                                html += '<td>'+'<button class="delete" id="' +
+                                    obj.Put_ID + 'DeleBtn">删除</button>';
+                                html += '</tr>';
+                            }
+                            $('#putLogTable').append(html);
+                        },
+                        error:function () {
+                            alert("Error");
+                        }
+                    })
+                }),
+                $('#outLogQueryBtn, #tagOutLogInfo').click(function () {
+                    $.ajax({
+                        type: "POST",
+                        url: "/manager/query_outlog/",
+                        data: {"outLogMonth": $('#outLogMonth').val()},
+                        dataType: "json",
+                        success: function (data) {
+                            $('#outLogTable').empty();
+                            var html = "";
+                            for (var j = 0; j < data.outLogList.length; ++j) {
+                                var obj = data.outLogList[j];
+                                html += '<tr>';
+                                html += '<td>' + obj.Out_ID + '</td>';
+                                html += '<td>' + obj.S_ID + '</td>';
+                                html += '<td>' + obj.C_ID + '</td>';
+                                html += '<td>' + obj.SellDate + '</td>';
+                                html += '<td>' + obj.Quantity + '</td>';
+                                html += '<td>'+'<button class="delete" id="' +
+                                    obj.Out_ID + 'DeleBtn">删除</button>';
+                                html += '</tr>';
+                            }
+                            $('#outLogTable').append(html);
+                        },
+                        error:function () {
+                            alert("Error");
+                        }
+                    })
+                }),
+                $('.edifySubmit').click(function () {
+{#                    alert($(this).parent().attr("id").substring(5, $(this).parent().attr("id").length-4));#}
+                    switch ($(this).parent().attr("id").substring(5, $(this).parent().attr("id").length-4)) {
+                        case "Commodity":
+                            var eCId = $("#edifyCommodityId").val();
+                            var eCName = $("#edifyCommodityName").val();
+                            var eCPrice = $("#edifyCommodityPrice").val();
+
+                            $.ajax({
+                                type: "POST",
+                                url: "/manager/edify_commodity/",
+                                data: {"edifyCommodityId": eCId, "edifyCommodityName": eCName, "edifyCommodityPrice": eCPrice},
+                                dataType: "json",
+                                success: function (data) {
+                                    $('#commodityTable').empty();
+                                    var html = "";
+                                    for (var j = 0; j < data.commodityList.length; ++j) {
+                                    var obj = data.commodityList[j];
+                                    html += '<tr>';
+                                    html += '<td>' + obj.C_ID + '</td>';
+                                    html += '<td>' + obj.C_Name + '</td>';
+                                    html += '<td>' + obj.C_Price + '</td>';
+                                    html += '<td>' + obj.C_Cost + '</td>';
+                                    html += '<td>' + obj.C_Weight + '</td>';
+                                    html += '<td>' + obj.C_Category + '</td>';
+                                    html += '<td>' + obj.C_Packaging + '</td>';
+                                    html += '<td>' + obj.C_Capacity + '</td>';
+{#                                    html += '<td>' + obj.totalQuantity + '</td>';#}
+                                    html += '<td>'+'<button class="delete" id ="' + obj.C_ID +
+                                        'DeleBtn">删除</button><button class="edify" id="'+ obj.C_ID +
+                                        'EdifyBtn">修改</button>'+'</td>';
+                                    html += '</tr>'
+                                    }
+                                    $('#commodityTable').append(html);
+                                },
+                                error:function () {
+                                    alert("Error");
+                                }
+                            });
+                            break;
+                        case "Monitor":
+                            var eMId = $("#edifyMonitorId").val();
+                            var eMName = $("#edifyMonitorName").val();
+                            var eMAge = $("#edifyMonitorAge").val();
+                            var eMPhone = $("#edifyMonitorPhone").val();
+                            var eMAddress = $("#edifyMonitorAddress").val();
+                            $.ajax({
+                                type: "POST",
+                                url: "/manager/edify_monitor/",
+                                data: {"edifyMonitorId": eMId, "edifyMonitorName": eMName,
+                                    "edifyMonitorAge": eMAge, "edifyMonitorPhone": eMPhone,
+                                    "edifyMonitorAddress": eMAddress},
+                                dataType: "json",
+                                success: function (data) {
+                                    $('#monitorTable').empty();
+                                    var html = "";
+                                    for (var j = 0; j < data.monitorList.length; ++j) {
+                                        var obj = data.monitorList[j];
+                                        html += '<tr>';
+                                        html += '<td>' + obj.M_ID + '</td>';
+                                        html += '<td>' + obj.M_Name + '</td>';
+                                        html += '<td>' + obj.M_Phone + '</td>';
+                                        html += '<td>' + obj.M_Address + '</td>';
+                                        html += '<td>' + obj.M_Age + '</td>';
+                                        html += '<td>'+'<button class="delete" id="' +
+                                            obj.M_ID + 'DeleBtn">删除</button><button class="edify" id="' +
+                                            obj.M_ID + 'EdifyBtn">修改</button>'+'</td>';
+                                        html += '</tr>'
+                                    }
+                                    $('#monitorTable').append(html);
+                                },
+                                error:function () {
+                                    alert("Error");
+                                }
+                            });
+                            break;
+                        case "Warehouse":
+                            eWId = $('#edifyWarehouseId').val();
+                            eWName = $('#edifyWarehouseName').val();
+                            eWAddress = $('#edifyWarehouseAddress').val();
+                            eWCapacity = $('#edifyWarehouseCapacity').val();
+                            $.ajax({
+                                type: "POST",
+                                url: "/manager/edify_warehouse/",
+                                data: {"edifyWarehouseId": eWId, "edifyWarehouseName": eWName,
+                                "edifyWarehouseAddress": eWAddress, "edifyWarehouseCapacity": eWCapacity},
+                                dataType: "json",
+                                success: function (data) {
+                                    $('#warehouseTable').empty();
+                                    var html = "";
+                                    for (var j = 0; j < data.warehouseList.length; ++j) {
+                                        var obj = data.warehouseList[j];
+                                        html += '<tr>';
+                                        html += '<td>' + obj.W_ID + '</td>';
+                                        html += '<td>' + obj.W_Name + '</td>';
+                                        html += '<td>' + obj.W_Address + '</td>';
+                                        html += '<td>' + obj.W_Capacity + '</td>';
+                                        html += '<td>' + obj.W_Monitor + '</td>';
+                                        html += '<td>'+'<button class="delete" id="' +
+                                            obj.W_ID + 'DeleBtn">删除</button><button class="edify" id="' +
+                                            obj.W_ID + 'EdifyBtn">修改</button>'+'</td>';
+                                        html += '</tr>'
+                                    }
+                                    $('#warehouseTable').append(html);
+                                },
+                                error:function () {
+                                    alert("Error");
+                                }
+                            });
+                            break;
+                    }
+                    $(this).parent().toggle(500);
+                }),
+                $('.edifyCancel').click(function () {
+                    $(this).parent().toggle(500);
+                })
+            });
+            $(document).on('click', '.delete', function () {
+                switch ($(this).parent().parent().parent().attr("id").substring(0, $(this).parent().parent().parent().attr("id").length-5)) {
+                    case "commodity":
+                        var dCId = $(this).parent().parent().children("td").eq(0).html();
+                        $.ajax({
+                            type: "POST",
+                            url: "/manager/delete_commodity/",
+                            data: {"deleteCommodityId": $(this).attr("id").substring(0, $(this).attr("id").length-7)},
+                            dataType: "json",
+                            success: function (data) {
+                                $('#commodityTable').empty();
+                                var html = "";
+                                for (var j = 0; j < data.commodityList.length; ++j) {
+                                    var obj = data.commodityList[j];
+                                    html += '<tr>';
+                                    html += '<td>' + obj.C_ID + '</td>';
+                                    html += '<td>' + obj.C_Name + '</td>';
+                                    html += '<td>' + obj.C_Price + '</td>';
+                                    html += '<td>' + obj.C_Cost + '</td>';
+                                    html += '<td>' + obj.C_Weight + '</td>';
+                                    html += '<td>' + obj.C_Category + '</td>';
+                                    html += '<td>' + obj.C_Packaging + '</td>';
+                                    html += '<td>' + obj.C_Capacity + '</td>';
+{#                                    html += '<td>' + obj.totalQuantity + '</td>';#}
+                                    html += '<td>'+'<button class="delete" id ="' + obj.C_ID +
+                                            'DeleBtn">删除</button><button class="edify" id="'+ obj.C_ID +
+                                            'EdifyBtn">修改</button>'+'</td>';
+                                    html += '</tr>'
+                                }
+                                $('#commodityTable').append(html);
+                            },
+                            error:function () {
+                                alert("Error");
+                            }
+                        });
+                        break;
+                    case "monitor":
+                        var dMId = $(this).parent().parent().children("td").eq(0).html();
+                        $.ajax({
+                            type: "POST",
+                            url: "/manager/delete_monitor/",
+                            data: {"deleteMonitorId": dMId},
+                            dataType: "json",
+                            success: function (data) {
+                                $('#monitorTable').empty();
+                                var html = "";
+                                for (var j = 0; j < data.monitorList.length; ++j) {
+                                    var obj = data.monitorList[j];
+                                    html += '<tr>';
+                                    html += '<td>' + obj.M_ID + '</td>';
+                                    html += '<td>' + obj.M_Name + '</td>';
+                                    html += '<td>' + obj.M_Phone + '</td>';
+                                    html += '<td>' + obj.M_Address + '</td>';
+                                    html += '<td>' + obj.M_Age + '</td>';
+                                    html += '<td>'+'<button class="delete" id="' +
+                                        obj.M_Id + 'DeleBtn">删除</button><button class="edify" id="' +
+                                        obj.M_Id + 'EdifyBtn">修改</button>'+'</td>';
+                                    html += '</tr>'
+                                }
+                                $('#monitorTable').append(html);
+                            },
+                            error:function () {
+                                alert("Error");
+                            }
+                        });
+                        break;
+                    case "warehouse":
+                        if (confirm("This action will delete the realation between the monitor,are you sure?")) {
+                            var dWId = $(this).parent().parent().children("td").eq(0).html();
+                            $.ajax({
+                            type: "POST",
+                            url: "/manager/delete_warehouse/",
+                            data: {"deleteWarehouseId": dWId},
+                            dataType: "json",
+                            success: function (data) {
+                                $('#warehouseTable').empty();
+                                var html = "";
+                                for (var j = 0; j < data.warehouseList.length; ++j) {
+                                    var obj = data.warehouseList[j];
+                                    html += '<tr>';
+                                    html += '<td>' + obj.W_ID + '</td>';
+                                    html += '<td>' + obj.W_Name + '</td>';
+                                    html += '<td>' + obj.W_Address + '</td>';
+                                    html += '<td>' + obj.W_Capacity + '</td>';
+                                    html += '<td>' + obj.W_Monitor + '</td>';
+                                    html += '<td>'+'<button class="delete" id="' +
+                                        obj.W_ID + 'DeleBtn">删除</button><button class="edify" id="' +
+                                        obj.W_ID + 'EdifyBtn">修改</button>'+'</td>';
+                                    html += '</tr>'
+                                }
+                                $('#warehouseTable').append(html);
+                            },
+                            error:function () {
+                                alert("Error");
+                            }
+                        });
+                        }
+                        break;
+                    case "putLog":
+                        var dPId = $(this).parent().parent().children("td").eq(0).html();
+                        $.ajax({
+                            type: "POST",
+                            url: "/manager/delete_putlog/",
+                            data: {"deletePutLogId": dPId},
+                            dataType: "json",
+                            success: function (data) {
+                                $('#putLogTable').empty();
+                                var html = "";
+                                for (var j = 0; j < data.putLogList.length; ++j) {
+                                    var obj = data.putLogList[j];
+                                    html += '<tr>';
+                                    html += '<td>' + obj.Put_ID + '</td>';
+                                    html += '<td>' + obj.PA_ID + '</td>';
+                                    html += '<td>' + obj.P_ID + '</td>';
+                                    html += '<td>' + obj.C_ID + '</td>';
+                                    html += '<td>' + obj.PutDate + '</td>';
+                                    html += '<td>' + obj.Quantity + '</td>';
+                                    html += '<td>'+'<button class="delete" id="' +
+                                        obj.Put_ID + 'DeleBtn">删除</button>';
+                                    html += '</tr>';
+                                }
+                                $('#putLogTable').append(html);
+                            },
+                            error:function () {
+                                alert("Error");
+                            }
+                        });
+                        break;
+                    case "outLog":
+                        var dOId = $(this).parent().parent().children("td").eq(0).html();
+                        $.ajax({
+                            type: "POST",
+                            url: "/manager/delete_outlog/",
+                            data: {"deleteOutLogId": dOId},
+                            dataType: "json",
+                            success: function (data) {
+                                $('#outLogTable').empty();
+                                var html = "";
+                                for (var j = 0; j < data.outLogList.length; ++j) {
+                                    var obj = data.outLogList[j];
+                                    html += '<tr>';
+                                    html += '<td>' + obj.Out_ID + '</td>';
+                                    html += '<td>' + obj.S_ID + '</td>';
+                                    html += '<td>' + obj.C_ID + '</td>';
+                                    html += '<td>' + obj.SellDate + '</td>';
+                                    html += '<td>' + obj.Quantity + '</td>';
+                                    html += '<td>'+'<button class="delete" id="' +
+                                        obj.Out_ID + 'DeleBtn">删除</button>';
+                                    html += '</tr>';
+                                }
+                                $('#outLogTable').append(html);
+                            },
+                            error:function () {
+                                alert("Error");
+                            }
+                        });
+                        break;
+                }
+
+            });
+            $(document).on('click', '.edify', function () {
+{#                alert($(this).attr("id"));#}
+                switch ($(this).parent().parent().parent().attr("id").substring(0, $(this).parent().parent().parent().attr("id").length-5)) {
+                    case "commodity"://commodityTable内
+                        var eCId = $(this).parent().parent().children("td").eq(0).html();
+                        var eCName = $(this).parent().parent().children("td").eq(1).html();
+                        var eCPrice = $(this).parent().parent().children("td").eq(2).html();
+                        $('#edifyCommodityId').val(eCId);
+                        $('#edifyCommodityName').val(eCName);
+                        $('#edifyCommodityPrice').val(eCPrice);
+                        $('#edifyCommodityForm').toggle(500);
+                        break;
+                    case "monitor":
+                        var eMId = $(this).parent().parent().children("td").eq(0).html();
+                        var eMName = $(this).parent().parent().children("td").eq(1).html();
+                        var eMPhone = $(this).parent().parent().children("td").eq(2).html();
+                        var eMAddress = $(this).parent().parent().children("td").eq(3).html();
+                        var eMAge = $(this).parent().parent().children("td").eq(4).html();
+                        $('#edifyMonitorId').val(eMId);
+                        $('#edifyMonitorName').val(eMName);
+                        $('#edifyMonitorPhone').val(eMPhone);
+                        $('#edifyMonitorAddress').val(eMAddress);
+                        $('#edifyMonitorAge').val(eMAge);
+                        $('#edifyMonitorForm').toggle(500);
+                        break;
+                    case "warehouse":
+                        var eWId = $(this).parent().parent().children("td").eq(0).html();
+                        var eWName = $(this).parent().parent().children("td").eq(1).html();
+                        var eWAddress = $(this).parent().parent().children("td").eq(2).html();
+                        var eWCapacity = $(this).parent().parent().children("td").eq(3).html();
+                        $('#edifyWarehouseId').val(eWId);
+                        $('#edifyWarehouseName').val(eWName);
+                        $('#edifyWarehouseAddress').val(eWAddress);
+                        $('#edifyWarehouseCapacity').val(eWCapacity);
+                        $('#edifyWarehouseForm').toggle(500);
+                        break;
+                }
+            });
+        </script>
+    </head>
+    <body class="skin-black">
+        <!-- header logo: style can be found in header.less -->
+        <header class="header">
+            <a href="/manager/statistics/" class="logo">
+                <!-- Add the class icon to your logo image or logo icon to add the margining -->
+                Welcome Manager！
+            </a>
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top" role="navigation">
+                <!-- Sidebar toggle button-->
+                <a  class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <div class="navbar-right">
+                    <ul class="nav navbar-nav">           
+                        <!-- User Account: style can be found in dropdown.less -->
+                        <li class="dropdown user user-menu">
+
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-user"></i>
+                                <span>{{ managerName }} <i class="caret"></i></span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
+                                <li>
+                                    <a href="/manager/logout/"><i class="fa fa-ban fa-fw pull-right"></i> Logout</a>
+                                </li>
+                            </ul>
+
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <div class="wrapper row-offcanvas row-offcanvas-left">
+            <!-- Left side column. contains the logo and sidebar -->
+            <aside class="left-side sidebar-offcanvas">
+                <!-- sidebar: style can be found in sidebar.less -->
+                <section class="sidebar">    
+                    <!-- search form -->
+                    <form  method="get" class="sidebar-form">
+                        <div class="input-group">
+                            <input type="text" name="q" class="form-control" placeholder="Search..."/>
+                            <span class="input-group-btn">
+                                <button type='submit' name='seach' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
+                            </span>
+                        </div>
+                    </form>
+                    <!-- /.search form -->
+                    <!-- sidebar menu: : style can be found in sidebar.less -->
+                    <ul class="sidebar-menu">
+                        <li>
+                            <a href="/manager/statistics/">
+                                <i class="fa fa-globe"></i> <span>Statistics</span>
+                            </a>
+                        </li>
+						<li class="active">
+                            <a href="/manager/query/">
+                                <i class="fa fa-glass"></i> <span>Query Panel</span>
+                            </a>
+                        </li>
+						<li>
+                            <a href="/manager/storage/">
+                                <i class="fa fa-glass"></i> <span>Storage Panel</span>
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+                <!-- /.sidebar -->
+            </aside>
+
+            <!-- Right side column. Contains the navbar and content of the page -->
+            <aside class="right-side">
+                <!-- Content Header (Page header) -->
+
+
+                <!-- Main content -->             
+					<div class="container">
+						<div class="row clearfix">
+							<div class="col-md-12 column">
+								<div class="tabbable" id="tabs-925543">
+									<ul class="nav nav-tabs">
+										<li class="active">
+											 <a href="#panel-commodity" data-toggle="tab" id="tagCommodityInfo">Commodity</a>
+										</li>
+										<li>
+											 <a href="#panel-monitor" data-toggle="tab" id="tagMonitorInfo">Monitor</a>
+										</li>
+                                        <li>
+                                            <a href="#panel-warehouse" data-toggle="tab" id="tagWarehouseInfo">WareHouses</a>
+                                        </li>
+										<li>
+											 <a href="#panel-putLog" data-toggle="tab" id="tagPutLogInfo">Put Log</a>
+										</li>
+                                        <li>
+                                            <a href="#panel-outLog" data-toggle="tab" id="tagOutLogInfo">Out Log</a>
+                                        </li>
+
+									</ul>
+									<div class="tab-content">
+										<div class="tab-pane active" id="panel-commodity">
+                                            <br>
+                                            <label for="commodityId">Commodity Id</label>
+                                            <input type="text" class="form-control" id="commodityId" style="width:1000px">
+                                            <label for="commodityName">Commodity Name</label>
+                                            <input type="text" class="form-control" id="commodityName" style="width:1000px">
+                                            <label for="commodityPrice">Price</label>
+                                            <input type="number" class="form-control" id="commodityPrice" style="width:1000px"><br>
+                                            <button id="commodityQueryBtn" class="btn btn-info">search</button><br><br>
+
+                                            <table class="table" style="width:90%">
+                                                <thead>
+                                                    <tr>
+                                                        <th>ID</th>
+                                                        <th>Name</th>
+                                                        <th>Price</th>
+                                                        <th>Cost</th>
+                                                        <th>Weight</th>
+                                                        <th>Category</th>
+                                                        <th>Packaging</th>
+                                                        <th>Capacity</th>
+                                                        <th>Operation</th>
+                                                    </tr>
+                                                </thead>
+                                                <div id="edifyCommodityForm" style="display: none">
+                                                    <label for="edifyCommodityId">Edify ID:</label>
+                                                    <input type="text" class="form-control" id="edifyCommodityId" style="width:1000px" readonly="true" disabled="true">
+                                                    <label for="edifyCommodityName">Edify Name:</label>
+                                                    <input type="text" class="form-control" id="edifyCommodityName" style="width:1000px">
+                                                    <label for="edifyCommodityPrice">Edify Price:</label>
+                                                    <input type="text" class="form-control" id="edifyCommodityPrice" style="width:1000px">
+                                                    <button id="commodityEdifySubmitBtn" class="edifySubmit">Edify</button>
+                                                    <button id="commodityEdifyCancelBtn" class="edifyCancel">Cancel</button>
+                                                </div>
+                                                <tbody id="commodityTable">
+                                                    {% for saledTuples in commodityList %}
+                                                        <tr>
+                                                            <td>{{ saledTuples.C_ID }}</td>
+                                                            <td>{{ saledTuples.C_Name }}</td>
+                                                            <td>{{ saledTuples.C_Price }}</td>
+                                                            <td>{{ saledTuples.C_Cost }}</td>
+                                                            <td>{{ saledTuples.C_Weight }}</td>
+                                                            <td>{{ saledTuples.C_Category }}</td>
+                                                            <td>{{ saledTuples.C_Packaging }}</td>
+                                                            <td>{{ saledTuples.C_Capacity }}</td>
+{#                                                            <td>{{ saledTuples.totalquantity }}</td>#}
+                                                            <td>
+                                                                <button class="delete" id="{{ saledTuples.C_ID }}DeleBtn">删除</button>
+                                                                <button class="edify" id="{{ saledTuples.C_ID }}EdifyBtn">修改</button>
+                                                            </td>
+                                                        </tr>
+                                                    {% endfor %}
+                                                </tbody>
+                                            </table>
+
+										</div>
+										<div class="tab-pane" id="panel-monitor">
+                                            <br>
+                                            <label for="monitorId">Monitor ID</label>
+                                            <input type="text" class="form-control" id="monitorId" style="width:1000px">
+                                            <label for="monitorName">Monitor Name</label>
+                                            <input type="text" class="form-control" id="monitorName" style="width:1000px">
+                                            <label for="monitorAge">Monitor Age</label>
+                                            <input type="text" class="form-control" id="monitorAge" style="width:1000px"><br>
+                                            <button id="monitorQueryBtn" class="btn btn-info">search</button><br><br>
+
+                                            <table class="table" style="width:90%">
+                                                <thead>
+                                                    <tr>
+                                                        <th>ID</th>
+                                                        <th>Name</th>
+                                                        <th>Phone</th>
+                                                        <th>Address</th>
+                                                        <th>Age</th>
+                                                        <th>Operation</th>
+                                                    </tr>
+                                                </thead>
+                                                <div id="edifyMonitorForm" style="display: none">
+                                                    <label for="edifyMonitorId">Edify ID:</label>
+                                                    <input type="text" class="form-control" id="edifyMonitorId" style="width:1000px" readonly="true" disabled="true" onfocus=this.blur()>
+                                                    <label for="edifyMonitorId">Edify Name:</label>
+                                                    <input type="text" class="form-control" id="edifyMonitorName" style="width:1000px">
+                                                    <label for="edifyMonitorPhone">Edify Phone:</label>
+                                                    <input type="text" class="form-control" id="edifyMonitorPhone" style="width:1000px">
+                                                    <label for="edifyMonitorAddress">Edify Address:</label>
+                                                    <input type="text" class="form-control" id="edifyMonitorAddress" style="width:1000px">
+                                                    <label for="edifyMonitorAge">Edify Age:</label>
+                                                    <input type="text" class="form-control" id="edifyMonitorAge" style="width:1000px">
+
+                                                    <button id="monitorEdifySubmitBtn" class="edifySubmit">Edify</button>
+                                                    <button id="monitorEdifyCancelBtn" class="edifyCancel">Cancel</button>
+                                                </div>
+                                                <tbody id="monitorTable">
+
+                                                </tbody>
+                                            </table>
+
+										</div>
+										<div class="tab-pane" id="panel-putLog">
+                                            <br>Please select the month to search.
+                                            <input class="form-control" type="month" id="putLogMonth" style="width:25%"><br>
+                                            <button id="putLogQueryBtn" class="btn btn-info">search</button><br><br>
+                                            <table class="table" style="width:90%">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Put_ID</th>
+                                                        <th>Purchasing Agent ID</th>
+                                                        <th>Provider ID</th>
+                                                        <th>Commodity ID</th>
+                                                        <th>PutDate</th>
+                                                        <th>Quantity</th>
+                                                        <th>Operation</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="putLogTable">
+
+                                                </tbody>
+                                            </table>
+										</div>
+                                        <div class="tab-pane" id="panel-outLog">
+                                            <br>
+                                            Please select the month to search.
+                                            <input class="form-control" type="month" id="outLogMonth" style="width:25%"><br>
+                                            <button id="outLogQueryBtn" class="btn btn-info">search</button><br><br>
+                                            <table class="table" style="width:90%">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Out_ID</th>
+                                                        <th>Saler ID</th>
+                                                        <th>Commodity ID</th>
+                                                        <th>Sell Date</th>
+                                                        <th>Quantity</th>
+                                                        <th>Operation</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="outLogTable">
+
+                                                </tbody>
+                                            </table>
+										</div>
+                                        <div class="tab-pane" id="panel-warehouse">
+                                            <br>
+                                            <label for="warehouseId">Warehouse ID</label>
+                                            <input type="text" class="form-control" id="warehouseId" style="width:1000px">
+                                            <label for="warehouseName">Warehouse Name</label>
+                                            <input type="text" class="form-control" id="warehouseName" style="width:1000px"><br>
+                                            <button id="warehouseQueryBtn" class="btn btn-info">search</button><br><br>
+
+                                            <table class="table" style="width:90%">
+                                                <thead>
+                                                    <tr>
+                                                        <th>ID</th>
+                                                        <th>Name</th>
+                                                        <th>Address</th>
+                                                        <th>Capacity</th>
+                                                        <th>Supervisor</th>
+                                                        <th>Operation</th>
+                                                    </tr>
+                                                </thead>
+                                                <div id="edifyWarehouseForm" style="display: none">
+                                                    <label for="edifyWarehouseId">Edify ID:</label>
+                                                    <input type="text" class="form-control" id="edifyWarehouseId" style="width:1000px" readonly="true" disabled="true">
+                                                    <label for="edifyWarehouseName">Edify Name:</label>
+                                                    <input type="text" class="form-control" id="edifyWarehouseName" style="width:1000px">
+                                                    <label for="edifyWarehouseAddress">Edify Address:</label>
+                                                    <input type="text" class="form-control" id="edifyWarehouseAddress" style="width:1000px">
+                                                    <label for="edifyWarehouseCapacity">Edify Capacity:</label>
+                                                    <input type="text" class="form-control" id="edifyWarehouseCapacity" style="width:1000px">
+                                                    <button id="warehouseEdifySubmitBtn" class="edifySubmit">Edify</button>
+                                                    <button id="warehouseEdifyCancelBtn" class="edifyCancel">Cancel</button>
+                                                </div>
+                                                <tbody id="warehouseTable">
+
+                                                </tbody>
+                                            </table>
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+                    <div id="colums">
+
+                    </div>
+
+               
+            </aside><!-- /.right-side -->
+        
+        </div>
+        <!-- ./wrapper -->
+        <!-- jQuery 2.0.2 -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+        <script src="{% static "js/jquery.min.js" %}" type="text/javascript"></script>
+        <script src="{% static "js/jquery.c" %}" type="text/javascript"></script>
+        <!-- Bootstrap -->
+        <script src="{% static "js/bootstrap.min.js" %}" type="text/javascript"></script>
+
+        <!-- Director App -->
+        <script src= "{% static "js/Director/app.js" %}" type="text/javascript"></script>
+    </body>
+</html>
