@@ -3,8 +3,10 @@
 
 # Travel-Simulator 
 This is a group project for my data structure course. The system is developed by Qt, with a desgined interface. It intends to offer travellers the optimal solution to his travel arrangement. Travellers can choose the wanted travel strategy and also both departures and destinations<br/>
+
 The system have three travel strategies. <br/>
 The first is time-least strategy<br/>
 the second is cost-least strategy<br/>
 the last is the mixed strategy which has the least cost under the condition that time is limited<br/>
+
 I implemented a directed-map struture to represent the timetable of train,car and plane, which is stored in matrixs. Floyed and Dijkstra's algorithms are used and adapted in the system.
