@@ -9,5 +9,13 @@ DBMS: MySQL<br/>
 开发完整的数据库应用系统
 数据管理子系统为B/S结构。
 
-Warehousing-Management-System
-Based on history data to offer strategic help for management and decision making
+# Warehousing-Management-System
+I finished the project with my classmates in my junior year. It is developed by Django, which implemented the B/S structure. During the process of developing, it abided by the foundamental principles and methods in the development of database system, which includes requirements analysis, conceptual schema design, logical schema design, physical schema design, and coding and debugging, etc.
+
+##### Environment and Tools
+OS：Microsoft Windows <br/>
+DBMS: MySQL<br/>
+
+##### Requirements
+Develop a fully functional database application system.
+The data management sub-system is B/S structure.
