@@ -3,5 +3,5 @@
 
 # Football-Club
 This console project developed with Visual Studio is for my C++ course. I accomplished it individually in my sophomore year.<br/>
-Mainly practiced oject-oriented C++ and socket programming. 
+Mainly practiced object-oriented C++ and socket programming. 
 
